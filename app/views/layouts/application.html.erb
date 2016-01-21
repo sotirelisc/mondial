@@ -7,12 +7,12 @@
   <%= csrf_meta_tags %>
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <script type="text/javascript">
-    $('ul.nav').find('a').click(function() {
-        var $href = $(this).attr('href');
-        var $anchor = $('#'+$href).offset();
-        $('body').animate({ scrollTop: $anchor.top }, 'slow');
-        return false;
-    });
+  $('ul.nav').find('a').click(function() {
+    var $href = $(this).attr('href');
+    var $anchor = $('#' + $href).offset();
+    $('body').animate({ scrollTop: $anchor.top }, 'slow');
+    return false;
+  });
   </script>
     <script type="text/javascript">
 
@@ -159,60 +159,40 @@
         var chart = new google.visualization.Histogram(document.getElementById('histograms_div'));
         chart.draw(data, options);
       }
-
     </script>
-  <style>
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 550px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-    
-    /* On small screens, set height to 'auto' for the grid */
-    @media screen and (max-width: 767px) {
-      .row.content {height: auto;} 
-    }
-  </style>
+    <style>
+      body {
+        min-height: 2000px;
+        padding-top: 70px;
+      }
+      .navrbar {
+        margin-bottom: 20px;
+      }
+    </style>
 </head>
 <body>
-<nav class="navbar navbar-inverse visible-xs">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Mondial</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Pies</a></li>
-        <li><a href="#">Maps</a></li>
-        <li><a href="#">Columns</a></li>
-        <li><a href="#">Histograms</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<div class="container-fluid">
-  <div class="row content">
-    <div class="col-sm-3 sidenav hidden-xs">
-      <h2>Mondial</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="#section1">Pies</a></li>
-        <li><a href="#maps">Maps</a></li>
-        <li><a href="#columns">Columns</a></li>
-        <li><a href="#histograms">Histograms</a></li>
-      </ul><br>
-    </div>
-    <br>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to 'Mondial', root_path, class: 'navbar-brand' %>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#pies">Pies</a></li>
+            <li><a href="#maps">Maps</a></li>
+            <li><a href="#columns">Columns</a></li>
+            <li><a href="#histograms">Histograms</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
     <%= yield %>
-  </div>
-</div>
 </body>
 </html>
