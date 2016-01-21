@@ -6,17 +6,26 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript">
+    $('ul.nav').find('a').click(function() {
+        var $href = $(this).attr('href');
+        var $anchor = $('#'+$href).offset();
+        $('body').animate({ scrollTop: $anchor.top }, 'slow');
+        return false;
+    });
+  </script>
     <script type="text/javascript">
 
       // Load the Visualization API.
       google.load('visualization', '1.0', {
-        'packages': ['corechart', 'map']
+        'packages': ['corechart', 'map', 'bar']
       });
 
       // Set a callback to run when the Google Visualization API is loaded.
       google.setOnLoadCallback(function() {
         drawChart();
         drawMap();
+        drawTitleSubtitle();
       });
 
       function drawMap() {
@@ -67,6 +76,47 @@
         var chart = new google.visualization.PieChart(document.getElementById('pie_div'));
         chart.draw(data, options);
       }
+      
+      function drawTitleSubtitle() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('timeofday', 'Time of Day');
+        data.addColumn('number', 'Motivation Level');
+        data.addColumn('number', 'Energy Level');
+  
+        data.addRows([
+          [{v: [8, 0, 0], f: '8 am'}, 1, .25],
+          [{v: [9, 0, 0], f: '9 am'}, 2, .5],
+          [{v: [10, 0, 0], f:'10 am'}, 3, 1],
+          [{v: [11, 0, 0], f: '11 am'}, 4, 2.25],
+          [{v: [12, 0, 0], f: '12 pm'}, 5, 2.25],
+          [{v: [13, 0, 0], f: '1 pm'}, 6, 3],
+          [{v: [14, 0, 0], f: '2 pm'}, 7, 4],
+          [{v: [15, 0, 0], f: '3 pm'}, 8, 5.25],
+          [{v: [16, 0, 0], f: '4 pm'}, 9, 7.5],
+          [{v: [17, 0, 0], f: '5 pm'}, 10, 10],
+        ]);
+  
+        var options = {
+          chart: {
+            title: 'Motivation and Energy Level Throughout the Day',
+            subtitle: 'Based on a scale of 1 to 10'
+          },
+          hAxis: {
+            title: 'Time of Day',
+            format: 'h:mm a',
+            viewWindow: {
+              min: [7, 30, 0],
+              max: [17, 30, 0]
+            }
+          },
+          vAxis: {
+            title: 'Rating (scale of 1-10)'
+          }
+        };
+  
+        var material = new google.charts.Bar(document.getElementById('columns_div'));
+        material.draw(data, options);
+      }
     </script>
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -77,7 +127,7 @@
       background-color: #f1f1f1;
       height: 100%;
     }
-        
+    
     /* On small screens, set height to 'auto' for the grid */
     @media screen and (max-width: 767px) {
       .row.content {height: auto;} 
@@ -93,7 +143,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">Logo</a>
+      <a class="navbar-brand" href="#">Mondial</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -109,12 +159,12 @@
 <div class="container-fluid">
   <div class="row content">
     <div class="col-sm-3 sidenav hidden-xs">
-      <h2>Logo</h2>
+      <h2>Mondial</h2>
       <ul class="nav nav-pills nav-stacked">
         <li class="active"><a href="#section1">Pies</a></li>
-        <li><a href="#section2">Maps</a></li>
-        <li><a href="#section3">Columns</a></li>
-        <li><a href="#section3">Histograms</a></li>
+        <li><a href="#maps">Maps</a></li>
+        <li><a href="#columns">Columns</a></li>
+        <li><a href="#histograms">Histograms</a></li>
       </ul><br>
     </div>
     <br>
