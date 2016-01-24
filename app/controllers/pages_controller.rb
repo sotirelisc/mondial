@@ -59,6 +59,65 @@ class PagesController < ApplicationController
       ["Thessalias", 0.153846153846153],
       ["Aghion Oros", 0.0192307692307692]
     ]
+    
+    # Query 12
+    @independence_12 = [
+      ["28-Nov-12", "Albania"],
+      ["01-Jan-29", "Greece"],
+      ["17-Sep-91",	"Macedonia"]
+      # 11-Apr-92	"Serbia"
+      # 03-Jun-06	"Montenegro"
+      # 17-Feb-08	"Kosovo"
+      # 08-Sep-78	"Andorra"
+      # 	"France"
+      # 01-Jan-92	"Spain"
+      # 12-Nov-18	"Austria"
+      # 01-Jan-93	"Czech Republic"
+      # 18-Jan-71	"Germany"
+      # 18-Nov-18	"Hungary"
+      # 17-Mar-61	"Italy"
+      # 12-Jul-06	"Liechtenstein"
+      # 01-Jan-93	"Slovakia"
+      # 25-Jun-91	"Slovenia"
+      # 01-Jan-91	"Switzerland"
+      # 25-Aug-91	"Belarus"
+      # 06-Sep-91	"Latvia"
+      # 06-Sep-91	"Lithuania"
+      # 11-Nov-18	"Poland"
+      # 01-Dec-91	"Ukraine"
+      # 24-Aug-91	"Russia"
+      # 04-Oct-30	"Belgium"
+      # 24-Nov-90	"Luxembourg"
+      # 01-Jan-79	"Netherlands"
+      # 01-Apr-92	"Bosnia and Herzegovina"
+      # 25-Jun-91	"Croatia"
+      # 22-Sep-08	"Bulgaria"
+      # 09-May-77	"Romania"
+      # 29-Oct-23	"Turkey"
+      # 	"Denmark"
+      # 06-Sep-91	"Estonia"
+      # 	"Faroe Islands"
+      # 06-Dec-17	"Finland"
+      # 26-Oct-05	"Norway"
+      # 	"Sweden"
+      # 01-Jan-19	"Monaco"
+      # 	"Gibraltar"
+      # 	"Guernsey"
+      # 11-Feb-29	"Holy See"
+      # 17-Jun-44	"Iceland"
+      # 06-Dec-21	"Ireland"
+      # 01-Jan-01	"San Marino"
+      # 	"Jersey"
+      # 21-Sep-64	"Malta"
+      # 	"Isle of Man"
+      # 27-Aug-91	"Moldova"
+      # 25-Jul-39	"Portugal"
+      # 	"Svalbard"
+      # 01-Jan-01	"United Kingdom"
+      # 16-Dec-91	"Kazakhstan"
+      # 16-Aug-60	"Cyprus"
+    ]
+
   end
 
   def maps

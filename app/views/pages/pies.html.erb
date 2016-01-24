@@ -2,7 +2,11 @@
       <div class="row" id="just_data">
         <div class="col-sm-12">
           <div class="well">
-            Χώρες με κοινό όνομα πρωτεύουσας: <%= @same_name %>
+            <b>Χώρες με κοινό όνομα πρωτεύουσας:</b> <%= @same_name %><br>
+            <b>Έτος ανεξαρτητοποίησης των χωρών της Ευρώπης:</b><br>
+            <% @independence_12.each do |(x, y)| %>
+              <%= y %> - <%= x %><br>
+            <% end %>
           </div>
         </div>
       </div>
@@ -87,8 +91,8 @@
 
         // Set chart options
         var options = {'title': 'Ποσοστό πλυθησμού ανά περιφέρεια',
-                       'width': 600,
-                       'height': 300};
+                       'width': 1000,
+                       'height': 500};
 
         // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.PieChart(document.getElementById('pies_div'));
@@ -105,8 +109,8 @@
 
         // Set chart options
         var options = {'title': 'Ποσοστό διαφόρων τύπων νησιών στη Γη',
-                       'width': 600,
-                       'height': 300};
+                       'width': 1000,
+                       'height': 500};
 
         // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.PieChart(document.getElementById('island_pie_div'));
