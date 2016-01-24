@@ -1,5 +1,8 @@
 class PagesController < ApplicationController
   def pies
+    
+    # SIMPLE QUERIES
+    
     # Query 2
     @ekvoles_2 = [
       ["Klaraelv", 460, "Vaenern"],
@@ -118,14 +121,137 @@ class PagesController < ApplicationController
       ["16-Aug-60", "Cyprus"]
     ]
 
-  end
-
-  def maps
-  end
-
-  def columns
-  end
-
-  def histograms
+    # ADVANCED QUERIES
+    
+    # Query 2
+    @gdp_2 = [
+      ["Name", "GDP"],
+      ["United States", 16720000],
+      ["China", 9330000],
+      ["Japan", 5007000],
+      ["Germany", 3593000],
+      ["France", 2739000],
+      ["United Kingdom", 2490000],
+      ["Brazil", 2190000],
+      ["Russia", 2113000]
+    ]
+    
+    # Query 4
+    @country_code_4 = %w(AL
+    GR
+    MK
+    SRB
+    MNE
+    AND
+    F
+    E
+    A
+    CZ
+    D
+    H
+    I
+    FL
+    SK
+    SLO
+    CH
+    BY
+    LV
+    LT
+    PL
+    UA
+    R
+    B
+    NL
+    BIH
+    HR
+    BG
+    RO
+    DK
+    EW
+    FARX
+    SF
+    S
+    MC
+    GBZ
+    GBG
+    IS
+    RSM
+    GBJ
+    M
+    GBM
+    MD
+    P
+    SVAX
+    GB
+    CN
+    UZB
+    ARM
+    GE
+    AZ
+    THA
+    NOK
+    HONX
+    MACX
+    RI
+    SYR
+    J
+    ROK
+    MV
+    CL
+    RC
+    BS
+    BDS
+    BERM
+    CDN
+    USA
+    C
+    WD
+    ES
+    GROX
+    WG
+    JA
+    MNTS
+    PR
+    KN
+    WL
+    SPMI
+    WV
+    TT
+    VIRG
+    AMSA
+    COOK
+    FJI
+    FPOL
+    GUAM
+    FSM
+    NAU
+    NZ
+    NIUE
+    PAL
+    PITC
+    TO
+    TUV
+    TOK
+    WAFU
+    WS
+    RA
+    BR
+    RCH
+    ROU
+    PE
+    GUY
+    FALK
+    TN
+    NAM
+    RSA
+    LS
+    MS
+    HELX
+    SY)
+    
+    # Query 8
+    search = params[:search]
+    # Assume search input is Amazonios
+    @river_countries = ["Brazil", "Peru", "Colombia"]
   end
 end
